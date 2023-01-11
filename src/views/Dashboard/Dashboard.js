@@ -142,7 +142,7 @@ function Dashboard() {
                                         </Grid>
                                         <Grid item lg={2} >
                                             <p>Current Epochs</p>
-                                            <h4 style={{color:'white'}}>{Number(currentEpoch)}<CountUp style={{ fontSize: '25px' }} end={TVL} separator="," prefix="$" /></h4>
+                                            <h4 style={{color:'white'}}>{Number(currentEpoch)}</h4>
                                             <hr />
                                              <h4 style={{color:'white'}}><ProgressCountdown base={moment().toDate()} hideBar={true} deadline={to} description="Next Epoch" /></h4>
                                             <p style={{fontSize:'14px'}}>Next Epochs in</p>
