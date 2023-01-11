@@ -146,7 +146,8 @@ function Dashboard() {
                                             <hr />
                                              <h4 style={{color:'white'}}><ProgressCountdown base={moment().toDate()} hideBar={true} deadline={to} description="Next Epoch" /></h4>
                                             <p style={{fontSize:'14px'}}>Next Epochs in</p>
-                                            <hr />
+                                            <hr />  
+                                            {/* djldf */}
                                             <span >Live Twap:<span style={{ color: 'green' }}>1.17</span></span><br />
                                             <span>TVL:<span style={{ color: 'green' }}><CountUp  end={TVL} separator="," prefix="$" /></span></span><br />
                                             <span>Last Eopchs twap : <span style={{ color: 'green' }}>1.22</span></span>
