@@ -281,7 +281,7 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Card style={{'paddingTop': '10px'}}>
             <CardContent align="center">
-              <h2>Total Value Locked</h2>
+              <h2>Total Value Locked {TVL}</h2>
               <CountUp style={{ fontSize: '25px' }} end={TVL} separator="," prefix="$" />
             </CardContent>
           </Card>

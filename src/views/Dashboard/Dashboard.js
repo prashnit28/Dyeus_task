@@ -7,10 +7,12 @@ import { Box, Card, CardContent, Button, Typography, Grid, Table, TableBody, Tab
 import { makeStyles } from '@material-ui/core/styles';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import TokenSymbol from '../../components/TokenSymbol';
-// import moment from 'moment';
-// import ProgressCountdown from './components/ProgressCountdown';
+import moment from 'moment';
+import ProgressCountdown from './components/ProgressCountdown';
 import useTreasuryAllocationTimes from '../../hooks/useTreasuryAllocationTimes';
-// const { to } = useTreasuryAllocationTimes();
+import useCurrentEpoch from '../../hooks/useCurrentEpoch';
+import useTotalValueLocked from '../../hooks/useTotalValueLocked'
+import CountUp from 'react-countup';
 
 const BackgroundImage = createGlobalStyle`
   body {
@@ -32,6 +34,11 @@ const TITLE = 'bomb.money | Dashboard';
 function Dashboard() {
     const rows = [];
     const classes = useStyles();
+    const {to } = useTreasuryAllocationTimes();
+    const currentEpoch = useCurrentEpoch();
+    const TVL = useTotalValueLocked();
+
+
     return (
         <Switch>
             <Page>
@@ -50,7 +57,6 @@ function Dashboard() {
                                 <CardContent style={{ textAlign: 'center' }}>
                                     <Typography style={{ textTransform: 'uppercase' }} >Bomb Finance Summary</Typography>
                                     <hr spacing={3} />
-                                    {/* <ProgressCountdown base={moment().toDate()} hideBar={true} deadline={to} description="Next Epoch" /> */}
                                     <Grid container>
                                         <Grid item lg={6} >
                                             <Grid container style={{ marginTop: '18px' }}>
@@ -136,13 +142,13 @@ function Dashboard() {
                                         </Grid>
                                         <Grid item lg={2} >
                                             <p>Current Epochs</p>
-                                            <h4>345</h4>
+                                            <h4 style={{color:'white'}}>{Number(currentEpoch)}<CountUp style={{ fontSize: '25px' }} end={TVL} separator="," prefix="$" /></h4>
                                             <hr />
-                                            <h4>03:38:36</h4>
-                                            <p>Next Epochs in</p>
+                                             <h4 style={{color:'white'}}><ProgressCountdown base={moment().toDate()} hideBar={true} deadline={to} description="Next Epoch" /></h4>
+                                            <p style={{fontSize:'14px'}}>Next Epochs in</p>
                                             <hr />
                                             <span >Live Twap:<span style={{ color: 'green' }}>1.17</span></span><br />
-                                            <span>TVL:<span style={{ color: 'green' }}>$5002,412</span></span><br />
+                                            <span>TVL:<span style={{ color: 'green' }}><CountUp  end={TVL} separator="," prefix="$" /></span></span><br />
                                             <span>Last Eopchs twap : <span style={{ color: 'green' }}>1.22</span></span>
                                         </Grid>
                                     </Grid>
