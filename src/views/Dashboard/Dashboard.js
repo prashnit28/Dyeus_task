@@ -148,6 +148,7 @@ function Dashboard() {
                                             <p style={{fontSize:'14px'}}>Next Epochs in</p>
                                             <hr />  
                                             {/* djldf */}
+                                            {/* aldflskdjf */}
                                             <span >Live Twap:<span style={{ color: 'green' }}>1.17</span></span><br />
                                             <span>TVL:<span style={{ color: 'green' }}><CountUp  end={TVL} separator="," prefix="$" /></span></span><br />
                                             <span>Last Eopchs twap : <span style={{ color: 'green' }}>1.22</span></span>
